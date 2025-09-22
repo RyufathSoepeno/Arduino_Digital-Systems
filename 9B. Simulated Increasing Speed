@@ -1,0 +1,22 @@
+// Simulated speedometer (speed increases then decreases)
+
+int speed = 0;
+int step = 5;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  speed += step;
+
+  if (speed >= 200 || speed <= 0) {
+    step = -step; // Change direction
+  }
+
+  Serial.print("Speed: ");
+  Serial.print(speed);
+  Serial.println(" km/h");
+
+  delay(200);
+}
